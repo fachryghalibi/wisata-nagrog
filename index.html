@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Desa Wisata Nagrog</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav-container">
-            <a href="#" class="logo">Desa Wisata Nagrog</a>
-            <ul class="nav-menu">
+            <a href="#home" class="logo">Desa Wisata Nagrog</a>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#tentang">Tentang</a></li>
                 <li><a href="#tujuan">Tujuan Program</a></li>
@@ -19,7 +20,10 @@
                 <li><a href="#wisata">Wisata</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
-            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-overlay"></div>
         </nav>
     </header>
 
@@ -52,7 +56,7 @@
         </div>
     </section>
 
-    <!-- About Section - Moved here -->
+    <!-- About Section -->
     <section class="about" id="tentang">
         <div class="container">
             <h2 class="section-title">Tentang Desa Wisata Nagrog</h2>
@@ -78,9 +82,7 @@
                 <div class="tujuan-header">
                     <h2>Tujuan Program</h2>
                     <p class="tujuan-description">
-                        Program ini bertujuan mengembangkan Desa Nagrog menjadi desa wisata mandiri melalui 
-                        identifikasi potensi, pemetaan destinasi, penyusunan model bisnis, perancangan desa wisata, 
-                        hingga promosi melalui video profil dan buku panduan.
+                        Kegiatan ini dijalankan oleh Program Studi S1 Administrasi Bisnis Telkom University yang didukung oleh PT Biro Klasifikasi Indonesia (Persero)
                     </p>
                 </div>
                 
@@ -133,77 +135,77 @@
     </section>
 
     <!-- Section Desa Nagrog -->
-<section class="desa-nagrog" id="desa-nagrog">
-    <div class="container">
-        <div class="desa-nagrog-content">
-            <div class="desa-nagrog-header">
-                <h2>Desa Nagrog</h2>
-                <p class="desa-nagrog-subtitle">Destinasi Wisata Unggulan Tasikmalaya</p>
-            </div>
-            
-            <div class="desa-nagrog-grid">
-                <div class="desa-nagrog-info">
-                    <div class="info-card">
-                        <div class="info-icon">📍</div>
-                        <h3>Lokasi Strategis</h3>
-                        <p>Desa Nagrog terletak sekitar <strong>68 km dari pusat kota Tasikmalaya</strong>, menjadikannya destinasi wisata yang mudah dijangkau namun tetap mempertahankan ketenangan alam pedesaan.</p>
+    <section class="desa-nagrog" id="desa-nagrog">
+        <div class="container">
+            <div class="desa-nagrog-content">
+                <div class="desa-nagrog-header">
+                    <h2>Desa Nagrog</h2>
+                    <p class="desa-nagrog-subtitle">Destinasi Wisata Unggulan Tasikmalaya</p>
+                </div>
+                
+                <div class="desa-nagrog-grid">
+                    <div class="desa-nagrog-info">
+                        <div class="info-card">
+                            <div class="info-icon">📍</div>
+                            <h3>Lokasi Strategis</h3>
+                            <p>Desa Nagrog terletak sekitar <strong>68 km dari pusat kota Tasikmalaya</strong>, menjadikannya destinasi wisata yang mudah dijangkau namun tetap mempertahankan ketenangan alam pedesaan.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">🏆</div>
+                            <h3>Desa Berkembang</h3>
+                            <p>Dalam tahun 2022, Desa Nagrog termasuk dalam kategori <strong>Desa Berkembang</strong> berdasar Indeks Desa Membangun (IDM) dengan skor IDM 6.6798 (Kemendesa, 2022).</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">👥</div>
+                            <h3>Kepemimpinan</h3>
+                            <p>Kepala Desa saat ini dijabat oleh <strong>Bapak Eji Risandi</strong>, sedangkan Sekretaris Desa adalah <strong>Bapak Heri Haryadi</strong>.</p>
+                        </div>
                     </div>
                     
-                    <div class="info-card">
-                        <div class="info-icon">🏆</div>
-                        <h3>Desa Berkembang</h3>
-                        <p>Dalam tahun 2022, Desa Nagrog termasuk dalam kategori <strong>Desa Berkembang</strong> berdasar Indeks Desa Membangun (IDM) dengan skor IDM 6.6798 (Kemendesa, 2022).</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">👥</div>
-                        <h3>Kepemimpinan</h3>
-                        <p>Kepala Desa saat ini dijabat oleh <strong>Bapak Eji Risandi</strong>, sedangkan Sekretaris Desa adalah <strong>Bapak Heri Haryadi</strong>.</p>
+                    <div class="desa-nagrog-destinations">
+                        <h3>Destinasi Wisata Unggulan</h3>
+                        <p class="destinations-intro">Terdapat <strong>enam lokasi</strong> yang memiliki potensi untuk dikembangkan menjadi destinasi wisata:</p>
+                        
+                        <div class="destinations-grid">
+                            <div class="destination-item">
+                                <div class="destination-icon">🏔️</div>
+                                <span>Tonjong Canyon</span>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-icon">🌊</div>
+                                <span>Grand Tapen</span>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-icon">💎</div>
+                                <span>Curug Hawu</span>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-icon">🏞️</div>
+                                <span>Curug Hador</span>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-icon">⛰️</div>
+                                <span>Curug Cjung</span>
+                            </div>
+                            <div class="destination-item">
+                                <div class="destination-icon">🌿</div>
+                                <span>Leuwi Eretan</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="desa-nagrog-destinations">
-                    <h3>Destinasi Wisata Unggulan</h3>
-                    <p class="destinations-intro">Terdapat <strong>enam lokasi</strong> yang memiliki potensi untuk dikembangkan menjadi destinasi wisata:</p>
-                    
-                    <div class="destinations-grid">
-                        <div class="destination-item">
-                            <div class="destination-icon">🏔️</div>
-                            <span>Tonjong Canyon</span>
-                        </div>
-                        <div class="destination-item">
-                            <div class="destination-icon">🌊</div>
-                            <span>Grand Tapen</span>
-                        </div>
-                        <div class="destination-item">
-                            <div class="destination-icon">💎</div>
-                            <span>Curug Hawu</span>
-                        </div>
-                        <div class="destination-item">
-                            <div class="destination-icon">🏞️</div>
-                            <span>Curug Hador</span>
-                        </div>
-                        <div class="destination-item">
-                            <div class="destination-icon">⛰️</div>
-                            <span>Curug Cjung</span>
-                        </div>
-                        <div class="destination-item">
-                            <div class="destination-icon">🌿</div>
-                            <span>Leuwi Eretan</span>
-                        </div>
+                <div class="desa-nagrog-highlight">
+                    <div class="highlight-content">
+                        <h3>Potensi Wisata Alam yang Menakjubkan</h3>
+                        <p>Desa Nagrog menawarkan keindahan alam yang masih alami dengan berbagai air terjun, canyon, dan pemandangan alam yang memukau. Setiap destinasi memiliki keunikan tersendiri yang siap memanjakan mata dan jiwa para wisatawan.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="desa-nagrog-highlight">
-                <div class="highlight-content">
-                    <h3>Potensi Wisata Alam yang Menakjubkan</h3>
-                    <p>Desa Nagrog menawarkan keindahan alam yang masih alami dengan berbagai air terjun, canyon, dan pemandangan alam yang memukau. Setiap destinasi memiliki keunikan tersendiri yang siap memanjakan mata dan jiwa para wisatawan.</p>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Services Section -->
     <section class="services" id="layanan">
@@ -245,30 +247,59 @@
     <!-- Footer -->
     <footer class="footer" id="kontak">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-content contact-layout">
+                <div class="contact-column">
                     <h3>Kontak Kami</h3>
-                    <p>Desa Nagrog, Kecamatan Cipatujah<br>
-                    Kabupaten Tasikmalaya, Jawa Barat</p>
-                    <p>Email: info@desawisata-nagrog.com</p>
+                    <ul>
+                        <li>Desa Nagrog, Kecamatan Cipatujah</li>
+                        <li>Kabupaten Tasikmalaya, Jawa Barat</li>
+                        <li>Email: info@desawisata-nagrog.com</li>
+                        <li>Telepon: +62 XXX-XXXX-XXXX</li>
+                    </ul>
                 </div>
-                <div class="footer-section">
+                <div class="contact-column">
                     <h3>Layanan</h3>
-                    <p><a href="#">Transportasi OJERA</a></p>
-                    <p><a href="#">Pemandu Wisata</a></p>
-                    <p><a href="#">Dokumentasi</a></p>
-                    <p><a href="#">Kuliner Khas</a></p>
+                    <ul>
+                        <li>Transportasi OJERA</li>
+                        <li>Pemandu Wisata</li>
+                        <li>Dokumentasi Profesional</li>
+                        <li>Kuliner Khas</li>
+                    </ul>
                 </div>
-                <div class="footer-section">
+                <div class="contact-column">
                     <h3>Wisata</h3>
-                    <p><a href="#">Wisata Alam</a></p>
-                    <p><a href="#">Wisata Budaya</a></p>
-                    <p><a href="#">Wisata Edukasi</a></p>
-                    <p><a href="#">Wisata Kuliner</a></p>
+                    <ul>
+                        <li>Tonjong Canyon</li>
+                        <li>Grand Tapen</li>
+                        <li>Curug Hawu</li>
+                        <li>Curug Hador</li>
+                        <li>Curug Cjung</li>
+                        <li>Leuwi Eretan</li>
+                    </ul>
                 </div>
             </div>
+            
+            <!-- Partners Section -->
+            <div class="footer-partners">
+                <h3>Didukung Oleh</h3>
+                <div class="partners-logo">
+                    <a href="https://bba.telkomuniversity.ac.id/" target="_blank" class="partner-link">
+                        <div class="logo-placeholder">
+                            <img src="assets/LOGO-TERBARU-S.1-ADBIS-BACKGROUND-UNGU.jpg" alt="S1 Administrasi Bisnis Telkom University">
+                            <p>S1 Administrasi Bisnis<br>Telkom University</p>
+                        </div>
+                    </a>
+                    <a href="https://www.bki.co.id/home" target="_blank" class="partner-link">
+                        <div class="logo-placeholder">
+                            <img src="assets/bki.png" alt="PT Biro Klasifikasi Indonesia">
+                            <p>PT Biro Klasifikasi<br>Indonesia (Persero)</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 Desa Wisata Nagrog. All rights reserved.</p>
+                <p>© 2024 Desa Wisata Nagrog. All rights reserved.</p>
             </div>
         </div>
     </footer>

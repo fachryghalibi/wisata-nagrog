@@ -31,8 +31,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -55,11 +54,17 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-menu li {
+    margin: 0;
 }
 
 .nav-menu a {
     color: white;
     text-decoration: none;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
@@ -72,8 +77,82 @@ body {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+    z-index: 1002;
+}
+
+.mobile-menu:hover {
+    transform: scale(1.1);
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #2c5530, #4a7c59);
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        font-size: 1rem;
+    }
+
+    .mobile-menu {
+        font-size: 1.5rem;
+    }
 }
 
 /* Hero Section */
@@ -88,7 +167,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    margin: 0;
+    margin: 60px 0 0;
     padding: 0;
     position: relative;
 }
@@ -346,7 +425,7 @@ body {
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
+    animation: tujuanPulse 4s ease-in-out infinite;
 }
 
 .tujuan-highlight-content {
@@ -371,123 +450,6 @@ body {
 .tujuan-highlight strong {
     font-weight: 600;
     color: #a8d5a8;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.1) rotate(180deg);
-        opacity: 0.8;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .tujuan-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-    
-    .tujuan-card {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .tujuan-program {
-        padding: 60px 0;
-    }
-    
-    .tujuan-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .tujuan-description {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-    
-    .tujuan-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .tujuan-card {
-        padding: 1.5rem;
-        margin: 0 1rem;
-    }
-    
-    .tujuan-icon {
-        font-size: 3rem;
-        padding: 15px;
-    }
-    
-    .tujuan-card h3 {
-        font-size: 1.3rem;
-    }
-    
-    .tujuan-highlight {
-        margin: 2rem 1rem 0;
-        padding: 2rem;
-    }
-    
-    .tujuan-highlight h3 {
-        font-size: 1.7rem;
-    }
-    
-    .tujuan-highlight p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .tujuan-header h2 {
-        font-size: 2rem;
-    }
-    
-    .tujuan-description {
-        font-size: 1rem;
-    }
-    
-    .tujuan-card {
-        padding: 1.2rem;
-    }
-    
-    .tujuan-icon {
-        font-size: 2.5rem;
-        padding: 12px;
-    }
-    
-    .tujuan-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .tujuan-card p {
-        font-size: 0.9rem;
-    }
-    
-    .tujuan-highlight {
-        padding: 1.5rem;
-    }
-    
-    .tujuan-highlight h3 {
-        font-size: 1.5rem;
-    }
 }
 
 /* Section Desa Nagrog */
@@ -749,127 +711,6 @@ body {
     opacity: 0.95;
 }
 
-/* Animations */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(180deg);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .desa-nagrog-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .desa-nagrog-info {
-        order: 2;
-    }
-    
-    .desa-nagrog-destinations {
-        order: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    .desa-nagrog {
-        padding: 60px 0;
-    }
-    
-    .desa-nagrog-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .desa-nagrog-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .info-card {
-        padding: 2rem;
-        margin: 0 1rem;
-    }
-    
-    .desa-nagrog-destinations {
-        padding: 2rem;
-        margin: 0 1rem;
-    }
-    
-    .destinations-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .destination-item {
-        padding: 1.2rem;
-    }
-    
-    .desa-nagrog-highlight {
-        padding: 2.5rem;
-        margin: 2rem 1rem 0;
-    }
-    
-    .desa-nagrog-highlight h3 {
-        font-size: 1.8rem;
-    }
-    
-    .desa-nagrog-highlight p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .desa-nagrog-header h2 {
-        font-size: 2rem;
-    }
-    
-    .info-card {
-        padding: 1.5rem;
-    }
-    
-    .info-icon {
-        font-size: 2rem;
-    }
-    
-    .info-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .desa-nagrog-destinations {
-        padding: 1.5rem;
-    }
-    
-    .destinations-grid {
-        gap: 0.8rem;
-    }
-    
-    .destination-item {
-        padding: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-    
-    .destination-icon {
-        font-size: 1.5rem;
-    }
-    
-    .desa-nagrog-highlight {
-        padding: 2rem;
-    }
-    
-    .desa-nagrog-highlight h3 {
-        font-size: 1.5rem;
-    }
-    
-    .desa-nagrog-highlight p {
-        font-size: 1rem;
-    }
-}
-
 /* Services Section */
 .services {
     padding: 80px 0;
@@ -977,38 +818,605 @@ body {
 
 /* Footer */
 .footer {
-    background: #2c5530;
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
     color: white;
-    padding: 40px 0;
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footerPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23footerPattern)"/></svg>');
+    pointer-events: none;
+}
+
+.contact-layout {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-column {
     text-align: center;
+    flex: 1;
+    min-width: 200px;
+    color: white;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1rem;
+.contact-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
     color: #a8d5a8;
 }
 
-.footer-section p, .footer-section a {
-    color: #ccc;
+.contact-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-column ul li {
+    font-size: 1rem;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.footer-content {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-partners {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-partners h3 {
+    margin-bottom: 2rem;
+    color: #a8d5a8;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-partners h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: #ff6b35;
+    border-radius: 2px;
+}
+
+.partners-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.partner-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    min-width: 280px;
     text-decoration: none;
-    line-height: 1.6;
+    justify-content: center;
 }
 
-.footer-section a:hover {
-    color: white;
+.partner-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(168, 213, 168, 0.3);
 }
 
-.footer-bottom {
-    border-top: 1px solid #4a7c59;
-    padding-top: 20px;
-    margin-top: 20px;
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.logo-placeholder img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.partner-link:hover .logo-placeholder img {
+    transform: scale(1.1);
+}
+
+.logo-placeholder p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 200px;
+}
+
+.footer .container {
+    text-align: initial; /* Reset text-align untuk container */
+}
+
+.footer-bottom * {
+    text-align: center !important; /* Force center alignment untuk semua elemen dalam footer-bottom */
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.85rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.85rem;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    .partners-logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .partner-link {
+        flex-direction: column;
+        padding: 1rem;
+        min-width: 200px;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .logo-placeholder {
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo-placeholder img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-placeholder p {
+        font-size: 0.85rem;
+        max-width: 180px;
+        text-align: center;
+    }
+
+    .partner-link:hover .logo-placeholder img {
+        transform: scale(1.1);
+    }
+
+    .partner-link:hover .logo-placeholder p {
+        color: #a8d5a8;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-link {
+        padding: 0.8rem;
+        min-width: 180px;
+        max-width: 220px;
+    }
+
+    .logo-placeholder img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-placeholder p {
+        font-size: 0.8rem;
+        max-width: 160px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .tujuan-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .tujuan-card {
+        padding: 2rem;
+    }
+    
+    .desa-nagrog-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .desa-nagrog-info {
+        order: 2;
+    }
+    
+    .desa-nagrog-destinations {
+        order: 1;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .partners-logo {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .partner-link {
+        flex: 1;
+        min-width: 200px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tujuan-program {
+        padding: 60px 0;
+    }
+    
+    .tujuan-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .tujuan-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .tujuan-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .tujuan-card {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .tujuan-icon {
+        font-size: 3rem;
+        padding: 15px;
+    }
+    
+    .tujuan-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .tujuan-highlight {
+        margin: 2rem 1rem 0;
+        padding: 2rem;
+    }
+    
+    .tujuan-highlight h3 {
+        font-size: 1.7rem;
+    }
+    
+    .tujuan-highlight p {
+        font-size: 1rem;
+    }
+    
+    .desa-nagrog {
+        padding: 60px 0;
+    }
+    
+    .desa-nagrog-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .desa-nagrog-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .info-card {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .desa-nagrog-destinations {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .destination-item {
+        padding: 1.2rem;
+    }
+    
+    .desa-nagrog-highlight {
+        padding: 2.5rem;
+        margin: 2rem 1rem 0;
+    }
+    
+    .desa-nagrog-highlight h3 {
+        font-size: 1.8rem;
+    }
+    
+    .desa-nagrog-highlight p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-location {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .about-content,
+    .pendahuluan-content {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-text {
+        font-size: 1.5rem;
+    }
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .partners-logo {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .partner-link {
+        max-width: 100%;
+        justify-content: center;
+    }
+    
+    .logo-placeholder {
+        justify-content: center;
+    }
+
+    .contact-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-column {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tujuan-header h2 {
+        font-size: 2rem;
+    }
+    
+    .tujuan-description {
+        font-size: 1rem;
+    }
+    
+    .tujuan-card {
+        padding: 1.2rem;
+    }
+    
+    .tujuan-icon {
+        font-size: 2.5rem;
+        padding: 12px;
+    }
+    
+    .tujuan-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .tujuan-card p {
+        font-size: 0.9rem;
+    }
+    
+    .tujuan-highlight {
+        padding: 1.5rem;
+    }
+    
+    .tujuan-highlight h3 {
+        font-size: 1.5rem;
+    }
+    
+    .desa-nagrog-header h2 {
+        font-size: 2rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .info-icon {
+        font-size: 2rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .desa-nagrog-destinations {
+        padding: 1.5rem;
+    }
+    
+    .destinations-grid {
+        gap: 0.8rem;
+    }
+    
+    .destination-item {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .destination-icon {
+        font-size: 1.5rem;
+    }
+    
+    .desa-nagrog-highlight {
+        padding: 2rem;
+    }
+    
+    .desa-nagrog-highlight h3 {
+        font-size: 1.5rem;
+    }
+    
+    .desa-nagrog-highlight p {
+        font-size: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-location {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .partner-link {
+        padding: 0.8rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-placeholder {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo-placeholder img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-placeholder p {
+        font-size: 0.8rem;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        width: 100%;
+    }
+
+    .contact-column h3 {
+        font-size: 1.3rem;
+    }
+
+    .contact-column ul li {
+        font-size: 0.9rem;
+    }
 }
 
 /* Animations */
@@ -1056,53 +1464,35 @@ body {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
+@keyframes tujuanPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
     }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.4;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        letter-spacing: 2px;
-    }
-
-    .hero-location {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-
-    .about-content,
-    .pendahuluan-content {
-        grid-template-columns: 1fr;
-    }
-
-    .quote-text {
-        font-size: 1.5rem;
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 0.8;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-subtitle {
-        font-size: 0.9rem;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
     }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
 
-    .hero h1 {
-        font-size: 2.5rem;
-        letter-spacing: 1px;
+@keyframes ripple {
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
     }
+}
 
-    .hero-location {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
+.footer-bottom {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
 }
